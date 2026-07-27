@@ -12,7 +12,7 @@ const APPS = [
   },
   {
     name: "SHOW SCANNER",
-    desc: "Tour-date radar for your favorite bands near Venice, CA.",
+    desc: "Tour-date radar for Venice, CA.",
     url: "https://show-scanner.onrender.com",
     icon: "assets/scanner-mark.svg",
     tag: "LIVE",
@@ -65,7 +65,7 @@ function cardHTML(app) {
         <div class="card-icon"><img src="${app.icon}" alt="${app.name} icon" /></div>
         <span class="card-badge">${app.tag}</span>
       </div>
-      <div>
+      <div class="card-body">
         <div class="card-title">${app.name}</div>
         <div class="card-desc">${app.desc}</div>
       </div>
