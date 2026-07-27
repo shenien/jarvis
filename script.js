@@ -95,9 +95,43 @@ function render(filter = "") {
 
   grid.innerHTML = html;
   cmdCount.textContent = q ? `${visible.length} result${visible.length === 1 ? "" : "s"}` : `${APPS.length} deployed`;
+  attachCardInteractions();
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function attachCardInteractions() {
+  if (prefersReducedMotion) return;
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("mouseenter", () => card.classList.add("tilting"));
+    card.addEventListener("mousemove", e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mx", `${(x / rect.width) * 100}%`);
+      card.style.setProperty("--my", `${(y / rect.height) * 100}%`);
+      card.style.setProperty("--rx", `${((x / rect.width) - 0.5) * 8}deg`);
+      card.style.setProperty("--ry", `${-((y / rect.height) - 0.5) * 8}deg`);
+    });
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("tilting");
+      card.style.setProperty("--rx", `0deg`);
+      card.style.setProperty("--ry", `0deg`);
+    });
+  });
 }
 
 render();
+
+/* ---------- Cursor-tracked ambient spotlight ---------- */
+
+if (!prefersReducedMotion) {
+  const root = document.documentElement;
+  window.addEventListener("mousemove", e => {
+    root.style.setProperty("--sx", `${(e.clientX / window.innerWidth) * 100}%`);
+    root.style.setProperty("--sy", `${(e.clientY / window.innerHeight) * 100}%`);
+  }, { passive: true });
+}
 
 filterInput.addEventListener("input", e => render(e.target.value));
 
@@ -152,8 +186,6 @@ function draw() {
   }
   requestAnimationFrame(draw);
 }
-
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 resize();
 initParticles();
