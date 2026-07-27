@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M20 18 C20 14 23 12 27 12 L50 12 L50 88 L27 88 C23 88 20 86 20 82 Z" fill="none" stroke="#c8a44f" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M80 18 C80 14 77 12 73 12 L50 12 L50 88 L73 88 C77 88 80 86 80 82 Z" fill="none" stroke="#c8a44f" stroke-width="2.2" stroke-linejoin="round" opacity="0.85"/>
+  <line x1="29" y1="30" x2="43" y2="30" stroke="#c8a44f" stroke-width="1.6" stroke-linecap="round" opacity="0.8"/>
+  <line x1="29" y1="40" x2="43" y2="40" stroke="#c8a44f" stroke-width="1.6" stroke-linecap="round" opacity="0.8"/>
+  <line x1="29" y1="50" x2="39" y2="50" stroke="#c8a44f" stroke-width="1.6" stroke-linecap="round" opacity="0.8"/>
+  <line x1="57" y1="30" x2="71" y2="30" stroke="#f5f5f7" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+  <line x1="57" y1="40" x2="71" y2="40" stroke="#f5f5f7" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+  <line x1="57" y1="50" x2="67" y2="50" stroke="#f5f5f7" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="50" cy="12" r="3" fill="#c8a44f"/>
+</svg>

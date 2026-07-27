@@ -18,6 +18,14 @@ const APPS = [
     tag: "LIVE",
     featured: true,
   },
+  {
+    name: "LEDGER",
+    desc: "Personal finance & subscription tracker.",
+    url: "https://ledger-an46.onrender.com",
+    icon: "assets/ledger-mark.svg",
+    tag: "LIVE",
+    featured: true,
+  },
 ];
 
 const MIN_SLOTS = 4; // keep the grid feeling like a roster, not a single tile
