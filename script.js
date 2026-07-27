@@ -3,11 +3,12 @@
    edit required — the grid, search, and empty-slot count all update on their own. */
 const APPS = [
   {
-    name: "Pilatesmith — Smithy",
-    desc: "Custom Pilates programming, forged to order.",
+    name: "THE SMITHY",
+    desc: "Athletic Pilates Club",
     url: "https://pilatesmith-smithy.onrender.com",
-    icon: "🧘",
+    icon: "assets/smithy-mark.png",
     tag: "LIVE",
+    featured: true,
   },
 ];
 
@@ -49,10 +50,11 @@ const filterInput = document.getElementById("filterInput");
 const cmdCount = document.getElementById("cmdCount");
 
 function cardHTML(app) {
+  const featuredClass = app.featured ? " featured" : "";
   return `
-    <a class="card" href="${app.url}" target="_blank" rel="noopener noreferrer" data-name="${app.name.toLowerCase()}">
+    <a class="card${featuredClass}" href="${app.url}" target="_blank" rel="noopener noreferrer" data-name="${app.name.toLowerCase()}">
       <div class="card-top">
-        <div class="card-icon">${app.icon}</div>
+        <div class="card-icon"><img src="${app.icon}" alt="${app.name} icon" /></div>
         <span class="card-badge">${app.tag}</span>
       </div>
       <div>
@@ -93,17 +95,6 @@ function render(filter = "") {
 
   grid.innerHTML = html;
   cmdCount.textContent = q ? `${visible.length} result${visible.length === 1 ? "" : "s"}` : `${APPS.length} deployed`;
-  attachCardGlow();
-}
-
-function attachCardGlow() {
-  document.querySelectorAll(".card:not(.slot)").forEach(card => {
-    card.addEventListener("mousemove", e => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-      card.style.setProperty("--my", `${e.clientY - rect.top}px`);
-    });
-  });
 }
 
 render();
@@ -136,14 +127,14 @@ function resize() {
 }
 
 function initParticles() {
-  const count = Math.min(70, Math.floor((w * h) / 22000));
+  const count = Math.min(34, Math.floor((w * h) / 42000));
   particles = Array.from({ length: count }, () => ({
     x: Math.random() * w,
     y: Math.random() * h,
-    r: Math.random() * 1.4 + 0.3,
-    vx: (Math.random() - 0.5) * 0.15,
-    vy: (Math.random() - 0.5) * 0.15,
-    a: Math.random() * 0.5 + 0.15,
+    r: Math.random() * 1 + 0.3,
+    vx: (Math.random() - 0.5) * 0.05,
+    vy: (Math.random() - 0.5) * 0.05,
+    a: Math.random() * 0.25 + 0.06,
   }));
 }
 
@@ -156,7 +147,7 @@ function draw() {
     if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(82, 224, 255, ${p.a})`;
+    ctx.fillStyle = `rgba(200, 164, 79, ${p.a})`;
     ctx.fill();
   }
   requestAnimationFrame(draw);
