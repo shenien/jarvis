@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JARVIS — Command Center</title>
+<meta name="description" content="Personal command center for apps in the works.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23070911'/%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%2352e0ff' stroke-width='3'/%3E%3Ccircle cx='50' cy='50' r='18' fill='none' stroke='%2352e0ff' stroke-width='2' opacity='0.6'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%2352e0ff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="field"></canvas>
+<div class="vignette"></div>
+<div class="scanline"></div>
+
+<div class="wrap">
+
+  <header class="hud">
+    <div class="hud-left">
+      <div class="mark">
+        <svg viewBox="0 0 100 100" class="mark-ring">
+          <circle cx="50" cy="50" r="44" class="ring ring-outer"/>
+          <circle cx="50" cy="50" r="34" class="ring ring-mid"/>
+          <circle cx="50" cy="50" r="6" class="ring-core"/>
+        </svg>
+      </div>
+      <div class="mark-text">
+        <span class="mark-title">JARVIS</span>
+        <span class="mark-sub">personal systems</span>
+      </div>
+    </div>
+
+    <div class="hud-right">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span class="status-label" id="statusLabel">ALL SYSTEMS ONLINE</span>
+      </div>
+      <div class="clock">
+        <span id="time">--:--:--</span>
+        <span id="date" class="date">—</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="greeting">
+      <h1 id="greetingText">Good evening, Shereef.</h1>
+      <p class="greeting-sub">Here's what's running.</p>
+    </section>
+
+    <section class="search-row">
+      <div class="cmd-bar">
+        <span class="cmd-icon">⌘K</span>
+        <input id="filterInput" type="text" placeholder="Search your builds…" autocomplete="off" spellcheck="false">
+        <span class="cmd-count" id="cmdCount"></span>
+      </div>
+    </section>
+
+    <section class="grid" id="appGrid">
+      <!-- app cards injected by script.js -->
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Built &amp; maintained by Shereef · <span id="year"></span></span>
+    <span class="foot-dim">v1.0</span>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
