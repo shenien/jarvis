@@ -10,6 +10,14 @@ const APPS = [
     tag: "LIVE",
     featured: true,
   },
+  {
+    name: "SHOW SCANNER",
+    desc: "Tour-date radar for your favorite bands near Venice, CA.",
+    url: "https://show-scanner.onrender.com",
+    icon: "assets/scanner-mark.svg",
+    tag: "LIVE",
+    featured: true,
+  },
 ];
 
 const MIN_SLOTS = 4; // keep the grid feeling like a roster, not a single tile
