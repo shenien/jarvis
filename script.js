@@ -26,6 +26,14 @@ const APPS = [
     tag: "LIVE",
     featured: true,
   },
+  {
+    name: "FRETBOARD",
+    desc: "Guitar tab exercises with a built-in metronome.",
+    url: "https://fretboard-bl2a.onrender.com",
+    icon: "assets/fretboard-mark.svg",
+    tag: "LIVE",
+    featured: true,
+  },
 ];
 
 const MIN_SLOTS = 4; // keep the grid feeling like a roster, not a single tile
