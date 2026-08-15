@@ -29,7 +29,7 @@ const APPS = [
   {
     name: "FRETBOARD",
     desc: "Guitar tab exercises with a built-in metronome.",
-    url: "https://fretboard-bl2a.onrender.com",
+    url: "https://fretboard-app.onrender.com",
     icon: "assets/fretboard-mark.svg",
     tag: "LIVE",
     featured: true,
